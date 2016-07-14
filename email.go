@@ -45,6 +45,8 @@ func countEmails(login string, password string, from string) (string, error) {
 		c, _ = imap.DialTLS("imap.gmail.com", nil)
 	} else if strings.Contains(login, "hotmail.com") {
 		c, _ = imap.DialTLS("imap-mail.outlook.com", nil)
+	} else if strings.Contains(login, "comcast.net") {
+		c, _ = imap.DialTLS("imap.comcast.net", nil)
 	} else {
 		newError = errors.New("Unsupported Email Address")
 		return strconv.Itoa(count), newError
